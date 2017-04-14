@@ -1,0 +1,24 @@
+#This project is under development
+#Logging is to be included
+
+
+import pytcp
+from logging import getLogger
+from argparse import ArgumentParser
+from pytcp.server import tcpserver
+
+logger=getLogger()
+
+if __name__ == '__main__':
+	parser=ArgumentParser(description='A simple python3 tcp server')
+	parser.add_argument('-p','--port', default=9999,help='Port Number',type=int)
+	args = parser.parse_args()
+
+	server=tcpserver(host="0.0.0.0",port=args.port)
+
+	#Start the server
+	try:
+		server.start()
+	except KeyboardInterrupt: #Cntrl+c to stop the server
+		pass
+

@@ -17,6 +17,5 @@ python3 setup.py install
 Usage:
 
 ```shell
-***Will be updated after the completeion of code***
-tcp.py -p PORT_NUMBER
+tcp3 -p 8008
 ```

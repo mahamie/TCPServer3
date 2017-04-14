@@ -7,7 +7,7 @@ socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
 
-class server:
+class tcpserver:
 	def __init__(self,host,port):
 		self.host = host
 		self.port = port
@@ -16,6 +16,7 @@ class server:
 		
 		socket.bind((self.host,self.port))
 		socket.listen(10) # Number of clients
+		print("listening on",self.port)
 		#Loop while the connection terminate with keyboard ineterruption ctr+c
 		try:
 			while True:
@@ -30,9 +31,8 @@ class server:
 
 		
 				conn.close( )
-				logging.info("Disconnected from ",address)
+				print("Disconnected from ",address)
 		finally:
 			socket.close( )
 
-a=server(host='0.0.0.0',port=9998)
-a.start()
+
