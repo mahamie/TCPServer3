@@ -28,7 +28,9 @@ class tcpserver:
 				while True:
 					data = conn.recv(1024)
 					if not data : break
-					conn.send(data)
+					size=str(len(data.decode("utf-8")))
+					size=bytes(size, 'utf=8')
+					conn.send(size)
 
 		
 				conn.close( )
@@ -36,4 +38,5 @@ class tcpserver:
 		finally:
 			socket.close( )
 
-
+a=tcpserver(host='0.0.0.0',port=8889)
+a.start()
