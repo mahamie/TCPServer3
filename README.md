@@ -4,9 +4,7 @@ Features:
 
 A simple TCP Server on Python3
 
- * Installs quickly
- * Multiple Ports
- * Logs Sever information
+
 
 To Install
 
