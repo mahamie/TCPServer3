@@ -28,14 +28,14 @@ class tcpserver:
 				while True:
 					data = conn.recv(1024)
 					if not data : break
-					size=str(len(data.decode("utf-8")))
-					size=bytes(size, 'utf=8')
+					size = len(data.strip(b'\n').strip(b'\r'))
+					size=str.encode(str(size)+'\n')
 					conn.send(size)
-
-		
 				conn.close( )
 				print("Disconnected from ",address)
 		finally:
 			socket.close( )
 
 
+A=tcpserver(host='0.0.0.0',port=8889)
+A.start()
