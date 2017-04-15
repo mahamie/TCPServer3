@@ -37,5 +37,3 @@ class tcpserver:
 			socket.close( )
 
 
-A=tcpserver(host='0.0.0.0',port=8889)
-A.start()
